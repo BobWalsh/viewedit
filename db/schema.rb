@@ -11,6 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170110163915) do
+
+  create_table "trips", force: :cascade do |t|
+    t.boolean  "kids"
+    t.datetime "startdate"
+    t.datetime "enddate"
+    t.integer  "participant_count"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "trip_name"
+  end
 
 end

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+<h5>(Note that you can tab and enter to access values as well as click.)</h5>
+<h1>Listing Trips</h1>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Trip Name</th>
+      <th>Kids OK?</th>
+      <th>Startdate</th>
+      <th>Enddate</th>
+      <th>Participant count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td>
+          <a href="#" data-xeditable="true" data-pk="<%= trip.id %>" data-model="trip" data-name="trip_name" data-url="<%= trip_url(trip) %>" data-title="Enter trip name">
+            <%= trip.trip_name %>
+          </a>
+        </td>
+        <td>
+          <a href="#" data-xeditable="true" data-pk="<%= trip.id %>" data-model="trip" data-name="kids" data-url="<%= trip_url(trip) %>" data-title="Kids OK?">
+            <%= trip.kids %>
+          </a>
+        </td>
+        <td>
+          <a href="#" data-xeditable="true" data-pk="<%= trip.id %>" data-model="trip" data-name="startdate" data-url="<%= trip_url(trip) %>" data-title="Start Date:">
+            <%= trip.startdate %>
+          </a>
+        </td>
+        <td>
+          <a href="#" data-xeditable="true" data-pk="<%= trip.id %>" data-model="trip" data-name="enddate" data-url="<%= trip_url(trip) %>" data-title="End Date:">
+            <%= trip.enddate %>
+          </a>
+        </td>
+        <td>
+          <a href="#" data-xeditable="true" data-pk="<%= trip.id %>" data-model="trip" data-name="participant_count" data-url="<%= trip_url(trip) %>" data-title="End Date:">
+            <%= trip.participant_count %>
+          </a>
+        </td>
+        <td><%= link_to 'Show', trip %></td>
+        <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
+        <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trip', new_trip_path %>
